@@ -1,0 +1,3 @@
+[submodule "app/packages/accounts-fogbugz"]
+	path = app/packages/accounts-fogbugz
+	url = https://github.com/sergeyt/meteor-accounts-fogbugz
