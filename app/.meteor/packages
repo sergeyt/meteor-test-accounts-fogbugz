@@ -9,4 +9,5 @@ insecure
 preserve-inputs
 jquery
 accounts-base
+accounts-password
 accounts-fogbugz

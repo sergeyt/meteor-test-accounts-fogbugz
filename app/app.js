@@ -7,7 +7,7 @@ if (Meteor.isClient) {
 
 	Template.login.events({
 
-		'submit #login-form': function(e, t) {
+		'click #login-button': function(e, t) {
 			e.preventDefault();
 
 			// retrieve the input field values
@@ -29,10 +29,23 @@ if (Meteor.isClient) {
 						}
 					});
 			return false;
+		},
+
+		'click #list-button': function(){
+			Meteor.call('listUsers');
 		}
 	});
 
 	Meteor.subscribe('users', function(){
 
+	});
+} else {
+	Meteor.methods({
+		 listUsers: function(){
+			 var users = Meteor.users.find({}).fetch();
+			 users.forEach(function(u){
+				  console.log(JSON.stringify(u, null, 2));
+			 });
+		 }
 	});
 }
