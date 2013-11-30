@@ -5,15 +5,27 @@
 <body>
 <h1>This is Meteor with FogBugz accounts</h1>
 {{> login}}
+<span>{{currentUser.services.fogbugz.token}}</span>
+{{> users}}
 </body>
 
+<template name="users">
+	<ul>
+		{{#each users}}
+		<li>
+			<pre>{{.}}</pre>
+		</li>
+		{{/each}}
+	</ul>
+</template>
+
 <template name="login">
-	<form id="login-form" action="action">
+	<form id="login-form">
 		<div>
-			<input type="text" id="fogbugz-url" value=""/>
-			<input type="email" id="login-email" value="{{currentUser.email}}"/>
-			<input type="password" id="login-password" />
-			<input type="submit" id="login-button" value="Sign in" />
+			<input type="text" id="fogbugz-url" value="https://code.datadynamics.com"/><br/>
+			<input type="email" id="login-email" value="sergey.todyshev@grapecity.com"/><br/>
+			<input type="password" id="login-password" /><br/>
+			<input type="button" id="login-button" value="Sign in" />
 		</div>
 	</form>
 </template>
